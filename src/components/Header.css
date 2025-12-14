@@ -1,0 +1,123 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-Inter);
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: 0.05em;
+    color: #fff;
+    /* mix-blend-mode removed from here */
+    z-index: 102;
+}
+
+.menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80px;
+    height: 10px;
+    /* Height determines the gap (Total: 9px = 3 lines + 2 gaps of 3px) */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 102;
+    /* Above sidebar */
+    padding: 0;
+}
+
+.menu-btn .line {
+    width: 100%;
+    height: 0.6px;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.menu-btn:hover .line:first-child {
+    transform: translateY(-2px);
+}
+
+.menu-btn:hover .line:last-child {
+    transform: translateY(2px);
+}
+
+/* Sidebar */
+.side-nav {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    /* Increased to accommodate content if needed */
+    width: 350px;
+    height: 100vh;
+    background-color: #044974;
+    /* Dark blue */
+    z-index: 101;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.side-nav.active {
+    right: 0;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    font-family: var(--font-inter);
+    font-size: 24px;
+    font-weight: 500;
+    color: #ffffff;
+    /* White text */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-links li a:hover {
+    color: #b0cce1;
+    /* Light blue/grey hover */
+}
+
+/* Overlay */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(2px);
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Make sure header logo is visible above overlay if we want, or covered. 
+   If covered, user clicks overlay to close.
+   But menu btn must be above sidebar.
+*/

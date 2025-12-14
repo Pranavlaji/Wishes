@@ -1,0 +1,332 @@
+.testimonials-section {
+    position: relative;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 8rem 2rem;
+    overflow: hidden;
+    /* Ensure ticker doesn't overflow page width */
+    z-index: 2;
+    /* Ensure it stacks properly above previous sticky section if needed */
+}
+
+.testimonials-intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 5rem;
+    padding: 0 2rem;
+}
+
+.testimonials-header-row {
+    position: absolute;
+    left: 3rem;
+    /* Aligned with container padding */
+    top: -2rem;
+    bottom: 0;
+    margin-block: auto;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.testimonials-label {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    font-family: var(--font-inter);
+}
+
+.testimonials-headline-wrapper {
+    text-align: center;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonials-headline {
+    font-family: 'Inter', sans-serif;
+    font-size: 100px;
+    font-weight: 600;
+    /* SemiBold */
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.testimonials-subheadline {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    /* Medium */
+    color: #6E6E6E;
+    max-width: 750px;
+    margin: 0;
+    /* aligned left */
+    text-align: center;
+}
+
+/* Layout Container */
+.testimonials-content {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 500px;
+    /* Fixed height for the cards */
+    display: flex;
+    align-items: center;
+}
+
+/* Static Image Card */
+.static-image-card {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 400px;
+    /* Or responsive percentage */
+    height: 100%;
+    z-index: 10;
+    /* Above ticker */
+    background-color: #F7F4F2;
+    /* User update */
+    /* Box shadow to separate from ticker passing behind? Optional */
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.static-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.static-card-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #6C8E7C;
+    /* Placeholder green from image */
+    background-image: url("/testimo.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+.static-card-overlay {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    color: #fff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+}
+
+.static-card-name {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    font-family: var(--font-inter);
+}
+
+.static-card-role {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+    font-family: var(--font-inter);
+}
+
+.static-card-link {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 2px;
+}
+
+/* Ticker Area */
+.ticker-mask {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    /* Remove padding and mask so it just sits behind the opaque static card */
+    z-index: 1;
+    /* Below static card (z-10) */
+    display: flex;
+    align-items: center;
+}
+
+.ticker-track {
+    display: flex;
+    gap: 2rem;
+    /* Create infinite scroll animation */
+    padding-left: 400px;
+    /* Start initially offset so first item isn't immediately hidden? */
+    animation: scrollTicker 60s linear infinite;
+    /* Ensure track is wide enough */
+    width: max-content;
+    will-change: transform;
+}
+
+@keyframes scrollTicker {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.333%);
+        /* Move 1/3rd of the total width (since we have 3 sets of data) */
+    }
+}
+
+/* Quote Card */
+.testimonial-card {
+    width: 400px;
+    /* Match static card width */
+    height: 500px;
+    /* Match static card height */
+    background-color: #FAF9F6;
+    /* Off-white / beige */
+    padding: 2rem 2rem 3rem;
+    /* Reduced top padding to move content up */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.quote-icon {
+    font-family: var(--font-inter);
+    font-size: 64px;
+    font-weight: 600;
+    /* Bolder to match image style */
+    line-height: 1;
+    color: #000;
+    margin-bottom: -1.6rem;
+    margin-top: 1.5rem;
+    /* Closer to text */
+    margin-left: 0;
+}
+
+.testimonial-quote {
+    font-family: var(--font-inter);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #000;
+    margin-bottom: auto;
+    margin-left: 1.4rem;
+    margin-right: 2.4rem;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: flex-start;
+    /* Aligns avatar with the top of the name/info block */
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.author-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #ddd;
+    flex-shrink: 0;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    /* Slightly reduced from 36 to balance with 45px avatar */
+    font-weight: 600;
+    color: #000;
+    line-height: 1.1;
+    margin-bottom: 4px;
+}
+
+.author-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.3rem;
+    margin-top: 0.2rem;
+}
+
+.author-company {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #6E6E6E;
+    /* Lighter grey */
+}
+
+.author-position {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #6E6E6E;
+    /* Lighter grey */
+    opacity: 1;
+    /* Removed opacity since we set color directly */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .testimonials-content {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .static-image-card {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        margin-bottom: 2rem;
+        z-index: 2;
+    }
+
+    .ticker-mask {
+        position: relative;
+        padding-left: 0;
+        height: 450px;
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    .ticker-track {
+        animation: scrollTickerResponsive 30s linear infinite;
+    }
+
+    @keyframes scrollTickerResponsive {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .testimonials-header-row {
+        left: 2rem;
+        top: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-headline {
+        font-size: 3rem;
+    }
+}

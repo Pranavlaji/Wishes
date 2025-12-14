@@ -1,0 +1,158 @@
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Add a blur effect to match the motion blur feel if the image isn't already blurred enough */
+    /* filter: blur(2px); */
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: 2rem 3rem;
+}
+
+.hero-text-main {
+    position: absolute;
+    top: calc(30% + 80px);
+    left: 3rem;
+    transform: translateY(-50%);
+}
+
+.hero-text-main h1 {
+    font-family: var(--font-Inter);
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 1.05;
+    margin-left: 4rem;
+    color: #fbf9f6b8;
+}
+
+.hero-text-sub {
+    position: absolute;
+    top: 15%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.sub-line-1 {
+    display: flex;
+    align-items: baseline;
+    margin-right: 100px;
+}
+
+/* Actually, the design usually has "The" small near "Media". Let's stick to standard flow but use classes */
+.serif-text {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: #fff;
+    line-height: 1;
+}
+
+.serif-text.small {
+    font-size: 40px;
+}
+
+.serif-text.large {
+    font-size: 60px;
+    margin-left: 0.5rem;
+}
+
+.sub-line-2 {
+    margin-top: 0rem;
+    margin-right: 57px;
+}
+
+.hero-footer-logo {
+    position: absolute;
+    bottom: 2rem;
+    right: 3rem;
+}
+
+.hero-footer-logo span {
+    font-family: var(--font-serif);
+    font-size: 10rem;
+    color: #fff;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.hero-footer-logo .trademark {
+    font-family: var(--font-sans);
+    font-size: 2em;
+    vertical-align: top;
+    position: relative;
+    top: 1.5rem;
+    left: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+    .hero-text-sub {
+        top: 10%;
+        right: 5%;
+    }
+
+    .hero-text-main {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-text-sub {
+        top: 15%;
+        right: 1.5rem;
+    }
+
+    .hero-footer-logo span {
+        font-size: 5rem;
+    }
+
+    .hero-text-main h1 {
+        font-size: 1.5rem;
+        margin-left: 0;
+        /* Remove offset on mobile */
+    }
+
+    .sub-line-1 {
+        margin-right: 0;
+        /* Align simpler on mobile */
+        gap: 0.5rem;
+    }
+
+    .sub-line-2 {
+        margin-right: 0;
+    }
+
+    .serif-text.small {
+        font-size: 24px;
+    }
+
+    .serif-text.large {
+        font-size: 36px;
+    }
+
+    .content-wrapper {
+        padding: 2rem 1.5rem;
+    }
+}

@@ -1,0 +1,273 @@
+.selected-works-section {
+    position: relative;
+    background-color: #ffffff;
+    padding: 12rem 0 50vh;
+    /* Extended padding for sticky scroll */
+    clip-path: inset(0);
+    /* Clips sticky content at section boundary */
+}
+
+.selected-works-label-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: absolute;
+    left: 5rem;
+    /* "near the left end" */
+    top: 5rem;
+    /* Positioned at the top of the section */
+    z-index: 20;
+}
+
+.selected-works-label {
+    font-family: var(--font-inter);
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+}
+
+.circle-indicator {
+    width: 6px;
+    height: 6px;
+    background-color: #044974;
+    border-radius: 50%;
+}
+
+.sticky-text-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: -100vh;
+}
+
+.sticky-text {
+    font-family: var(--font-inter);
+    font-size: 175px;
+    font-weight: 600;
+    color: #A8A8A8;
+    white-space: nowrap;
+    margin: 0;
+    line-height: 1;
+}
+
+.works-list {
+    position: relative;
+    z-index: 10;
+    max-width: 1400px;
+    margin: 7rem auto 0;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+}
+
+.work-card-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+/* Card 1: 704x464, Image: 683x364 */
+.work-card-wrapper:nth-child(1) {
+    margin-top: -150px;
+}
+
+.work-card-wrapper:nth-child(1) .work-card {
+    width: 704px;
+    padding: 12px 12px 36px 12px;
+    max-width: 100%;
+}
+
+.work-card-wrapper:nth-child(1) .work-image-container {
+    width: 100%;
+    height: 364px;
+    margin-bottom: 0;
+    /* Padding handles the spacing to text */
+}
+
+/* Card 2: 490x421, Image: 466x314. Pulled up to sit alongside (diagonal) to 1st card */
+.work-card-wrapper:nth-child(2) {
+    margin-top: -60px;
+    /* Pull up to overlap vertically, creating horizontal arrangement */
+}
+
+.work-card-wrapper:nth-child(2) .work-card {
+    width: 490px;
+    padding: 12px 12px 36px 12px;
+    max-width: 100%;
+}
+
+.work-card-wrapper:nth-child(2) .work-image-container {
+    width: 100%;
+    height: 314px;
+    margin-bottom: 0;
+}
+
+/* Card 3: 473x421, Image: 449x321. "bring this card also more up" */
+.work-card-wrapper:nth-child(3) {
+    margin-top: -80px;
+    /* Arbitrary "more up" overlap */
+}
+
+.work-card-wrapper:nth-child(3) .work-card {
+    width: 473px;
+    padding: 12px 12px 36px 12px;
+    max-width: 100%;
+}
+
+.work-card-wrapper:nth-child(3) .work-image-container {
+    width: 100%;
+    height: 321px;
+    margin-bottom: 0;
+}
+
+/* Card 4: 664x435, Image: 640x335. */
+.work-card-wrapper:nth-child(4) {
+    margin-top: -50px;
+    /* Overlap */
+}
+
+.work-card-wrapper:nth-child(4) .work-card {
+    width: 664px;
+    padding: 12px 12px 36px 12px;
+    max-width: 100%;
+    margin-right: 60px;
+}
+
+.work-card-wrapper:nth-child(4) .work-image-container {
+    width: 100%;
+    height: 335px;
+    margin-bottom: 0;
+}
+
+
+.work-card-wrapper.left {
+    justify-content: flex-start;
+    padding-left: 0;
+    /* Removed padding to shift closer to edge */
+}
+
+.work-card-wrapper.right {
+    justify-content: flex-end;
+    padding-right: 0;
+    /* Removed padding to shift closer to edge */
+}
+
+.work-card {
+    background-color: #F7F4F2;
+    /* width/padding handled by specific nth-child rules above, but defaults: */
+    width: 100%;
+    box-sizing: border-box;
+    /* Ensure padding includes in width */
+}
+
+/* Base image container */
+.work-image-container {
+    width: 100%;
+    overflow: hidden;
+    /* Height handled per card */
+}
+
+.work-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.work-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.work-title {
+    font-family: var(--font-inter);
+    font-size: 24px;
+    font-weight: 500;
+    /* Medium */
+    color: #000;
+}
+
+.work-year {
+    font-family: var(--font-inter);
+    font-size: 15px;
+    font-weight: 400;
+    /* Regular */
+    color: #000;
+}
+
+@media (max-width: 1200px) {
+    .sticky-text {
+        font-size: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sticky-text-container {
+        position: relative;
+        /* Unstick on mobile? Or keep sticky but smaller? User said mobile responsiveness: vertically stacked. Usually sticky text gets messy on mobile. Let's keep it but make it small, or hide it. Reference didn't specify. I'll keep it simple for now, maybe just relative or hidden. Let's make it relative and standard header for mobile to be safe/cleaner. */
+        height: auto;
+        top: 0;
+        transform: none;
+        margin-bottom: 3rem;
+    }
+
+    .sticky-text {
+        font-size: 48px;
+        white-space: normal;
+    }
+
+    .work-card-wrapper:nth-child(1),
+    .work-card-wrapper:nth-child(2),
+    .work-card-wrapper:nth-child(3),
+    .work-card-wrapper:nth-child(4) {
+        margin-top: 0;
+    }
+
+    .work-card-wrapper:nth-child(1) .work-card,
+    .work-card-wrapper:nth-child(2) .work-card,
+    .work-card-wrapper:nth-child(3) .work-card,
+    .work-card-wrapper:nth-child(4) .work-card {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .work-image-container,
+    .work-card-wrapper:nth-child(1) .work-image-container,
+    .work-card-wrapper:nth-child(2) .work-image-container,
+    .work-card-wrapper:nth-child(3) .work-image-container,
+    .work-card-wrapper:nth-child(4) .work-image-container {
+        height: 300px;
+    }
+
+    .works-list {
+        gap: 4rem;
+        margin-top: 0;
+    }
+
+    .work-card-wrapper.left,
+    .work-card-wrapper.right {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .work-card {
+        max-width: 100%;
+    }
+
+    .selected-works-label-container {
+        left: 1.5rem;
+        top: 2rem;
+    }
+}

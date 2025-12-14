@@ -1,0 +1,215 @@
+.contact-section {
+    background-color: #044974;
+    color: #ffffff;
+    padding: 15rem 2rem 12rem;
+    /* Increased top padding to accommodate absolute header */
+    border-top-left-radius: 64px;
+    border-top-right-radius: 64px;
+    position: relative;
+    /* Ensure it stacks properly */
+    z-index: 2;
+    overflow: hidden;
+}
+
+.contact-header {
+    margin-bottom: 2rem;
+    position: absolute;
+    left: 5rem;
+    top: 6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-label {
+    font-family: var(--font-inter);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.contact-section .circle-indicator {
+    width: 6px;
+    height: 6px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.contact-content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Left Column */
+.contact-left-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-headline {
+    font-family: var(--font-inter);
+    font-size: 100px;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 4rem;
+    margin-top: 0;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 500px;
+    margin-bottom: 4rem;
+    margin-top: 3rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-label {
+    font-family: var(--font-inter);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.form-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 0;
+    color: #fff;
+    font-family: var(--font-inter);
+    font-size: 16px;
+    font-weight: 600;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+    font-family: var(--font-inter);
+    font-weight: 600;
+}
+
+.form-input:focus {
+    border-bottom-color: #fff;
+}
+
+.submit-button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: var(--font-inter);
+    font-size: 40px;
+    font-weight: 600;
+    text-align: left;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: fit-content;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
+    margin-top: 1rem;
+}
+
+.submit-button .label {
+    text-decoration: underline;
+}
+
+.submit-button:hover {
+    opacity: 0.8;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact-email {
+    font-family: var(--font-inter);
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+}
+
+.contact-phone {
+    font-family: var(--font-inter);
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* Right Column */
+.contact-right-col {
+    display: flex;
+    flex-direction: column;
+    padding-top: 9.5rem;
+    /* Reduced to pull up "Book a..." text */
+    /* Push content down to align roughly with form start/headline end */
+}
+
+.contact-subtext {
+    font-family: var(--font-inter);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 130%;
+    color: #eeececa3;
+    max-width: 300px;
+    margin-bottom: 4rem;
+    align-self: flex-end;
+    /* Right align within column */
+    text-align: left;
+}
+
+.contact-image-wrapper {
+    width: 100%;
+    height: 100%;
+    /* Fill available space */
+    min-height: 400px;
+    /* Fallback */
+    /* We want it to end where the phone number is. Grid will stretch columns to match height. */
+    background-color: #082d45;
+    /* Darker placeholder */
+    position: relative;
+    overflow: hidden;
+    margin-top: 5rem;
+}
+
+.contact-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background-image: url('public/contactus.webp');
+    /* Placeholder image of woman in dress */
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width: 1024px) {
+    .contact-content-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .contact-right-col {
+        padding-top: 0;
+    }
+
+    .contact-headline {
+        font-size: 64px;
+    }
+
+    .contact-header {
+        left: 1.5rem;
+        top: 2rem;
+    }
+}

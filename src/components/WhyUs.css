@@ -1,0 +1,308 @@
+.why-us-section {
+    background-color: #F7F4F2;
+    padding: 10rem 3rem 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.why-us-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+    width: 100%;
+}
+
+.why-us-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.why-us-label-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: absolute;
+    left: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.circle-indicator {
+    width: 6px;
+    height: 6px;
+    background-color: #044974;
+    border-radius: 50%;
+}
+
+.why-us-label {
+    font-family: var(--font-inter);
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+}
+
+.why-us-headline {
+    font-family: var(--font-inter);
+    font-size: 120px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+    color: #000;
+}
+
+.why-us-subheadline {
+    font-family: var(--font-inter);
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-top: 2.5rem;
+    max-width: 450px;
+    text-align: center;
+}
+
+/* Grid Layout */
+.why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    /* 6 columns for flexibility */
+    grid-template-rows: 250px 250px 150px 350px;
+    /* Explicit rows for desktop control */
+    gap: 0.8rem;
+    max-width: 1400px;
+    width: 100%;
+}
+
+.grid-card {
+    background-color: #eee;
+    /* Default placeholder */
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px;
+    /* Sharp corners requested */
+}
+
+.card-title {
+    font-family: var(--font-inter);
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    z-index: 2;
+    line-height: 1.2;
+}
+
+.card-title.dark-text {
+    color: #000;
+}
+
+.card-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Specific Card Spans and Styles */
+
+/* 1. Collaborative Process: 2x2 */
+.card-collaborative {
+    grid-column: span 2;
+    grid-row: span 2;
+    background-color: #d1d1cf;
+    /* Placeholder grey */
+}
+
+/* 2. 24/7 Support: 2x1 */
+.card-support {
+    grid-column: span 2;
+    grid-row: span 1;
+    background-color: #000;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.card-support .card-bg-img {
+    width: 60%;
+    height: auto;
+    max-height: 80%;
+    left: auto;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    object-fit: contain;
+}
+
+/* 3. Speed without decay: 2x1 */
+.card-speed {
+    grid-column: span 2;
+    grid-row: span 1;
+    background-color: #1a1a1a;
+}
+
+/* 4. Cinematic Production: 2x2 */
+.card-cinematic {
+    grid-column: span 2;
+    grid-row: span 2;
+    background-color: #fff;
+}
+
+/* 5. Brand Identity Focused: 3x1 */
+.card-identity {
+    grid-column: span 3;
+    grid-row: span 1;
+    background-color: #0c3b6d;
+    /* Deep blue */
+    justify-content: center;
+}
+
+.card-identity .card-bg-img {
+    width: 60%;
+    height: auto;
+    max-height: 80%;
+    left: auto;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    object-fit: contain;
+}
+
+/* 6. High Engagement Rates: 3x1 */
+.card-engagement {
+    grid-column: span 3;
+    grid-row: span 1;
+    background-color: #e6dce3;
+    /* Light lavender/pinkish */
+    justify-content: center;
+}
+
+.card-engagement .card-bg-img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    left: auto;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    object-fit: contain;
+}
+
+/* 7. Content With Perfection: 2x2 but looking at image, it's 2 cols wide.
+   Wait, Row 3 has: Identity (3) + Engagement (3) = 6. Correct.
+   Row 4 has: Content (2) + Pricing (2) + Clarity (2) = 6. Correct.
+   Wait, Content is tall? Image shows square-ish content.
+   Let's check the flow. 
+   Or just tall 1x? Let's assume 2x2 height for visual weight or just 350px height.
+   Let's make them span 2 cols, and 1.5 rows or just use auto-row height.
+   Let's try grid-row span 2 for the bottom ones to be substantial.
+*/
+
+.card-perfection {
+    grid-column: span 2;
+    grid-row: span 1;
+    /* Changed from span 2 */
+    background-color: #3e0e1a;
+    /* Dark maroon/red */
+}
+
+.card-pricing {
+    grid-column: span 2;
+    grid-row: span 1;
+    /* Changed from span 2 */
+    background-color: #2b3a2b;
+    /* Dark olive green */
+}
+
+.card-clarity {
+    grid-column: span 2;
+    grid-row: span 1;
+    /* Changed from span 2 */
+    background-color: #3d4c5c;
+    /* Muted blue/slate */
+}
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .why-us-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns on tablet */
+        grid-template-rows: auto;
+        /* Reset explicit rows */
+        grid-auto-rows: 250px;
+        /* Fallback to auto rows */
+        gap: 1rem;
+    }
+
+    .card-collaborative,
+    .card-cinematic,
+    .card-perfection,
+    .card-pricing,
+    .card-clarity {
+        grid-column: span 1;
+        grid-row: span 1;
+        aspect-ratio: 1;
+        /* Make them squares */
+    }
+
+    .card-support,
+    .card-speed {
+        grid-column: span 1;
+    }
+
+    .card-identity,
+    .card-engagement {
+        grid-column: span 2;
+        /* Full width of tablet grid */
+    }
+
+    .why-us-headline {
+        font-size: 80px;
+    }
+
+    .why-us-label-container {
+        left: 2rem;
+        top: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .why-us-grid {
+        display: flex;
+        /* Stack on mobile */
+        flex-direction: column;
+    }
+
+    .grid-card {
+        width: 100%;
+        height: 300px;
+    }
+
+    .why-us-headline {
+        font-size: 48px;
+    }
+
+    .why-us-label-row {
+        width: 100%;
+        justify-content: center;
+        /* Center on mobile? Or keep left? */
+        /* User likes left label, centered headline. Let's try to keep that structure. */
+        position: relative;
+    }
+
+    .why-us-label-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
