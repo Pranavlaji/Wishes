@@ -39,7 +39,7 @@ const FAQ = () => {
         <section id="faq" className="faq-section">
             <div className="faq-image-wrapper">
                 {/* Visual reference placeholder - User can replace or I use one of existing */}
-                <img src="public/faq-cover.webp" alt="FAQ Hero" className="faq-image" />
+                <img src="/faq-cover.webp" alt="FAQ Hero" className="faq-image" />
             </div>
 
             <div className="faq-content-wrapper">
